@@ -1,7 +1,7 @@
 # app.rb
 require 'webrick'
-require_relative 'app/router.rb'
-require_relative 'app/controllers/loginController.rb'
+require_relative 'router.rb'
+require_relative 'controllers/loginController.rb'
 # Certifique-se de ter os controladores necessários aqui, como 'sessions_controller' e 'users_controller'
 
 server = WEBrick::HTTPServer.new(Port: 8080)
@@ -13,7 +13,8 @@ router = Router.new
 # router.get('/logout', &SessionsController.method(:logout))
 
 # Rotas para UsersController
-router.get('/login', &LoginController.method(:index))   
+# router.get('/login', &LoginController.method(:index))   
+router.get('/login') { @LoginController.index }
 
 # Exemplo de rota padrão
 router.get('/') { 'Bem-vindo ao Meu Sistema de Login!' }

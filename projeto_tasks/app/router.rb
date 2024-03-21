@@ -11,6 +11,10 @@ class Router
     @routes["GET #{path}"] = block
   end
 
+  def get(path, &block)
+    @loginController["GET #{path}"] = block
+  end
+
   def post(path, &block)
     @routes["POST #{path}"] = block
   end
